@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { Project } from "@/types";
 import {
   HeartHandshake,
@@ -26,23 +27,20 @@ export function ProgramaAcolherSection({ data }: ProgramaAcolherProps) {
     <>
       <div
         id="programa-acolher"
-        className="rounded-2xl bg-gradient-to-br from-purple-900 via-indigo-950 to-slate-900 text-white p-6 sm:p-8 shadow-md relative overflow-hidden border border-purple-800/40"
+        className="rounded-3xl bg-gradient-to-br from-[#1a1236] via-[#16193b] to-[#0c162c] text-white p-6 sm:p-8 md:p-10 shadow-lg relative overflow-hidden border border-purple-800/40"
       >
-        {/* Subtle decorative glow */}
-        <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
-          <div className="max-w-2xl">
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-7">
             <div className="flex items-center gap-2 mb-3">
               <span className="w-8 h-8 rounded-lg bg-purple-400/20 text-purple-300 flex items-center justify-center">
                 <HeartHandshake className="w-4 h-4" />
               </span>
-              <span className="text-xs font-semibold text-purple-300 tracking-wider uppercase">
+              <span className="text-xs font-bold text-purple-300 tracking-wider uppercase">
                 Programa Institucional UNIVALI
               </span>
             </div>
 
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
               {data.title}
             </h3>
 
@@ -51,10 +49,10 @@ export function ProgramaAcolherSection({ data }: ProgramaAcolherProps) {
             </p>
 
             {/* Crucial institutional disclaimer banner */}
-            <div className="mt-4 p-3.5 rounded-lg bg-purple-950/70 border border-purple-500/30 text-xs text-purple-200 flex items-start gap-2.5">
+            <div className="mt-4 p-3.5 rounded-xl bg-purple-950/80 border border-purple-500/30 text-xs text-purple-200 flex items-start gap-2.5">
               <Info className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" />
               <div>
-                <strong>Atenção institucional:</strong> O Portal de Psicologia é um canal de comunicação estudantil e não presta atendimento psicológico, diagnóstico ou consultas diretas. Todo o acolhimento é conduzido exclusivamente pelos profissionais do Programa Acolher da UNIVALI.
+                <strong>Atenção institucional:</strong> O Portal de Psicologia é um canal informativo discente e <strong>não presta atendimento psicológico, diagnóstico ou consultas diretas</strong>. Todo o acolhimento é conduzido exclusivamente pelos profissionais do Programa Acolher da UNIVALI.
               </div>
             </div>
 
@@ -76,27 +74,44 @@ export function ProgramaAcolherSection({ data }: ProgramaAcolherProps) {
                 <span>{data.contactEmail}</span>
               </div>
             </div>
+
+            <div className="mt-7 flex flex-wrap gap-3">
+              <button
+                onClick={() => setModalOpen(true)}
+                className="px-5 py-2.5 text-xs font-bold text-slate-900 bg-white hover:bg-purple-50 rounded-xl transition-all shadow-sm"
+              >
+                Ver Detalhes do Atendimento
+              </button>
+
+              {data.officialUrl && (
+                <a
+                  href={data.officialUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2.5 text-xs font-semibold text-purple-200 bg-purple-900/60 hover:bg-purple-800/80 border border-purple-500/40 rounded-xl transition-colors flex items-center gap-1.5"
+                >
+                  <span>Página Oficial UNIVALI</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              )}
+            </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0">
-            <button
-              onClick={() => setModalOpen(true)}
-              className="px-5 py-2.5 text-xs font-bold text-slate-900 bg-white hover:bg-purple-50 rounded-xl transition-all shadow-sm text-center"
-            >
-              Ver Detalhes do Acolhimento
-            </button>
-
-            {data.officialUrl && (
-              <a
-                href={data.officialUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-5 py-2.5 text-xs font-semibold text-purple-200 bg-purple-900/60 hover:bg-purple-800/80 border border-purple-500/40 rounded-xl transition-colors flex items-center justify-center gap-1.5"
-              >
-                <span>Página Oficial na UNIVALI</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
-            )}
+          {/* Visual card thumbnail showing the therapeutic space */}
+          <div className="lg:col-span-5 flex justify-center">
+            <div className="relative rounded-2xl overflow-hidden border border-purple-500/30 w-full max-w-sm aspect-[4/3] shadow-md group">
+              <Image
+                src="/images/acolher-espaco.jpg"
+                alt="Espaço de acolhimento e escuta qualificada da UNIVALI"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-purple-950/80 via-transparent to-transparent" />
+              <div className="absolute bottom-3 left-3 right-3 text-xs text-purple-100 font-medium">
+                Espaço de Acolhimento e Escuta Breve · Bloco F1
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -35,11 +35,17 @@ const config: Config = {
           800: "#6b21a8",
           900: "#581c87",
         },
+        // Atlética: Identidade A.A.A.P.U. Guaxas
+        // Azul escuro, azul petróleo/ciano, cinza, branco e preto (SEM dourado)
         atletica: {
-          primary: "#111827",
-          accent: "#f59e0b",
-          highlight: "#7c3aed",
-          surface: "#1f2937",
+          dark: "#09121d",
+          primary: "#0b1c2e",
+          petrol: "#0e7490",
+          cyan: "#0284c7",
+          accent: "#06b6d4",
+          light: "#ecfeff",
+          slate: "#334155",
+          border: "#164e63",
         },
       },
     },

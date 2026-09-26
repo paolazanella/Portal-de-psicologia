@@ -1,7 +1,8 @@
 import React from "react";
+import Image from "next/image";
 import { AcademicEvent } from "@/types";
 import { formatDayAndMonth, formatDate } from "@/lib/date";
-import { Clock, MapPin, Award, ExternalLink, Users } from "lucide-react";
+import { Clock, MapPin, Award, ExternalLink, Users, Shield } from "lucide-react";
 
 interface EventCardProps {
   event: AcademicEvent;
@@ -22,7 +23,7 @@ export function EventCard({ event, compact = false }: EventCardProps) {
     },
     em_breve: {
       label: "Em Breve",
-      color: "text-amber-700 bg-amber-50 border border-amber-200",
+      color: "text-cyan-700 bg-cyan-50 border border-cyan-200",
     },
     encerrado: {
       label: "Encerrado",
@@ -38,76 +39,115 @@ export function EventCard({ event, compact = false }: EventCardProps) {
   const isAtletica = event.entityOwner === "atletica";
 
   return (
-    <article className="bg-white border border-slate-200/90 rounded-xl p-5 hover:border-slate-300 transition-all flex flex-col justify-between">
+    <article className="bg-white border border-slate-200/90 rounded-2xl overflow-hidden hover:border-slate-300 hover:shadow-md transition-all flex flex-col justify-between group">
       <div>
-        <div className="flex items-start gap-4 mb-4">
-          {/* Calendar Badge Indicator */}
-          <div
-            className={`w-14 h-14 rounded-lg flex flex-col items-center justify-center shrink-0 border ${
-              isAtletica
-                ? "bg-amber-50 border-amber-200 text-amber-950"
-                : "bg-blue-50 border-blue-200 text-brand-950"
-            }`}
-          >
-            <span className="text-[11px] font-bold tracking-wider uppercase leading-none opacity-80">
-              {month}
-            </span>
-            <span className="text-xl font-extrabold leading-none mt-1">
-              {day}
-            </span>
-          </div>
+        {/* Visual Cover Image (if available) */}
+        {event.imageUrl && (
+          <div className="relative w-full h-44 bg-slate-100 overflow-hidden">
+            <Image
+              src={event.imageUrl}
+              alt={event.title}
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-300"
+              referrerPolicy="no-referrer"
+            />
+            {/* Scrim Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
 
-          <div className="flex-1 min-w-0">
-            {/* Zero-Pill Unboxed Metadata Line with typographic separators */}
-            <div className="flex flex-wrap items-center gap-1.5 text-xs text-slate-500 mb-1.5">
-              <span className="font-semibold text-slate-700">
-                {event.category}
-              </span>
-              <span aria-hidden="true">·</span>
-              <span className="flex items-center gap-1">
-                <Users className="w-3 h-3 text-slate-400" />
-                <span>
-                  {event.entityOwner === "atletica"
-                    ? "Atlética de Psicologia"
-                    : "Centro Acadêmico"}
-                </span>
-              </span>
+            {/* Date Tag Floating on Image */}
+            <div className="absolute bottom-3 left-3 flex items-center gap-2">
+              <div
+                className={`px-2.5 py-1 rounded-lg backdrop-blur-md flex items-center gap-1.5 text-xs font-bold ${
+                  isAtletica
+                    ? "bg-[#0b1c2e]/90 text-cyan-300 border border-cyan-500/40"
+                    : "bg-white/95 text-brand-900 border border-white/60 shadow-sm"
+                }`}
+              >
+                <span>{day} {month}</span>
+              </div>
+
+              {isAtletica && (
+                <div className="px-2.5 py-1 rounded-lg bg-cyan-950/90 text-cyan-300 border border-cyan-400/40 text-[11px] font-bold tracking-wide uppercase flex items-center gap-1">
+                  <Shield className="w-3 h-3 text-cyan-400" />
+                  <span>Guaxas</span>
+                </div>
+              )}
             </div>
-
-            <h3 className="text-base font-bold text-slate-900 leading-snug line-clamp-2">
-              {event.title}
-            </h3>
           </div>
-        </div>
-
-        {/* Description */}
-        {!compact && (
-          <p className="text-xs text-slate-600 leading-relaxed mb-4 line-clamp-3">
-            {event.description}
-          </p>
         )}
 
-        {/* Clean details list */}
-        <div className="space-y-1.5 text-xs text-slate-600 mb-4">
-          <div className="flex items-center gap-2">
-            <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-            <span>{event.time}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-            <span className="truncate">{event.location}</span>
-          </div>
-          {event.workloadHours && (
-            <div className="flex items-center gap-2 font-medium text-brand-800">
-              <Award className="w-3.5 h-3.5 text-brand-600 shrink-0" />
-              <span>{event.workloadHours} horas complementares</span>
+        <div className="p-5">
+          <div className="flex items-start gap-4 mb-3">
+            {/* Calendar Badge (shown when no cover image) */}
+            {!event.imageUrl && (
+              <div
+                className={`w-14 h-14 rounded-xl flex flex-col items-center justify-center shrink-0 border ${
+                  isAtletica
+                    ? "bg-cyan-50 border-cyan-200 text-cyan-950"
+                    : "bg-blue-50 border-blue-200 text-brand-950"
+                }`}
+              >
+                <span className="text-[10px] font-bold tracking-wider uppercase leading-none opacity-80">
+                  {month}
+                </span>
+                <span className="text-xl font-extrabold leading-none mt-1">
+                  {day}
+                </span>
+              </div>
+            )}
+
+            <div className="flex-1 min-w-0">
+              {/* Unboxed Metadata Line */}
+              <div className="flex flex-wrap items-center gap-1.5 text-xs text-slate-500 mb-1">
+                <span className="font-semibold text-slate-700">
+                  {event.category}
+                </span>
+                <span aria-hidden="true">·</span>
+                <span className="flex items-center gap-1">
+                  <Users className="w-3 h-3 text-slate-400" />
+                  <span>
+                    {isAtletica
+                      ? "A.A.A.P.U. Guaxas"
+                      : "Centro Acadêmico"}
+                  </span>
+                </span>
+              </div>
+
+              <h3 className="text-base font-bold text-slate-900 leading-snug group-hover:text-brand-700 transition-colors">
+                {event.title}
+              </h3>
             </div>
+          </div>
+
+          {/* Description */}
+          {!compact && (
+            <p className="text-xs text-slate-600 leading-relaxed mb-4 line-clamp-3">
+              {event.description}
+            </p>
           )}
+
+          {/* Clean details list */}
+          <div className="space-y-1.5 text-xs text-slate-600 mb-2">
+            <div className="flex items-center gap-2">
+              <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+              <span>{event.time}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+              <span className="truncate">{event.location}</span>
+            </div>
+            {event.workloadHours && (
+              <div className="flex items-center gap-2 font-medium text-brand-800">
+                <Award className="w-3.5 h-3.5 text-brand-600 shrink-0" />
+                <span>{event.workloadHours} horas complementares</span>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
       {/* Footer action and status */}
-      <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+      <div className="px-5 py-3.5 bg-slate-50/70 border-t border-slate-100 flex items-center justify-between gap-2">
         <span
           className={`text-[11px] font-semibold px-2 py-0.5 rounded ${statusInfo.color}`}
         >

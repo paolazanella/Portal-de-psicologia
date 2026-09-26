@@ -1,14 +1,14 @@
 import React from "react";
-import { Mail, Instagram, MapPin, Clock, MessageSquare, ExternalLink } from "lucide-react";
+import { Mail, Instagram, MapPin, Clock, MessageSquare, Shield } from "lucide-react";
 
 export function ContactChannels() {
   return (
     <div className="space-y-6">
       {/* Centro Academico Card */}
-      <div className="bg-white border border-slate-200/90 rounded-2xl p-6 hover:shadow-sm transition-shadow">
+      <div className="bg-white border border-slate-200/90 rounded-2xl p-6 hover:shadow-md transition-shadow">
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-10 rounded-xl bg-blue-50 text-brand-700 flex items-center justify-center font-serif font-bold text-base">
-            CA
+          <div className="w-10 h-10 rounded-xl bg-blue-50 text-brand-700 flex items-center justify-center font-serif font-bold text-base border border-blue-100">
+            Ψ
           </div>
           <div>
             <h4 className="text-base font-bold text-slate-900">
@@ -47,15 +47,15 @@ export function ContactChannels() {
         </div>
       </div>
 
-      {/* Atletica Card */}
-      <div className="bg-white border border-slate-200/90 rounded-2xl p-6 hover:shadow-sm transition-shadow">
+      {/* Atletica Card - Guaxas Palette */}
+      <div className="bg-white border border-slate-200/90 rounded-2xl p-6 hover:shadow-md transition-shadow">
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-900 flex items-center justify-center font-bold text-base border border-amber-200/60">
-            Ψ
+          <div className="w-10 h-10 rounded-xl bg-[#0b1c2e] text-cyan-400 flex items-center justify-center font-bold text-base border border-cyan-800">
+            <Shield className="w-5 h-5" />
           </div>
           <div>
             <h4 className="text-base font-bold text-slate-900">
-              Atlética de Psicologia UNIVALI
+              Atlética Guaxas (A.A.A.P.U.)
             </h4>
             <p className="text-xs text-slate-500">Esportes, Torcida & Integração</p>
           </div>
@@ -63,31 +63,31 @@ export function ContactChannels() {
 
         <div className="space-y-2.5 text-xs text-slate-600">
           <div className="flex items-center gap-2.5">
-            <Mail className="w-4 h-4 text-amber-600 shrink-0" />
-            <a href="mailto:atletica.psico@univali.br" className="hover:text-amber-700 font-medium">
+            <Mail className="w-4 h-4 text-cyan-700 shrink-0" />
+            <a href="mailto:atletica.psico@univali.br" className="hover:text-cyan-800 font-medium">
               atletica.psico@univali.br
             </a>
           </div>
           <div className="flex items-center gap-2.5">
-            <Instagram className="w-4 h-4 text-amber-600 shrink-0" />
+            <Instagram className="w-4 h-4 text-cyan-700 shrink-0" />
             <a
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-amber-700"
+              className="hover:text-cyan-800"
             >
               @atleticapsicounivali
             </a>
           </div>
           <div className="flex items-center gap-2.5">
-            <MessageSquare className="w-4 h-4 text-amber-600 shrink-0" />
+            <MessageSquare className="w-4 h-4 text-cyan-700 shrink-0" />
             <a
               href="https://chat.whatsapp.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-amber-700"
+              className="hover:text-cyan-800"
             >
-              Grupo de Avisos no WhatsApp (Comunidade)
+              Comunidade Oficial Guaxas no WhatsApp
             </a>
           </div>
         </div>

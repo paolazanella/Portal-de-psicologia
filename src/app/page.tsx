@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { EventCard } from "@/features/events/components/EventCard";
@@ -19,6 +20,7 @@ import {
   ExternalLink,
   GraduationCap,
   ShieldCheck,
+  Shield,
 } from "lucide-react";
 
 export default function HomePage() {
@@ -28,93 +30,122 @@ export default function HomePage() {
   const navigationShortcuts = [
     {
       title: "Centro Acadêmico",
-      description: "Representação discente, propostas, comunicados e contato da gestão.",
+      description: "Representação discente oficial, propostas, comunicados da gestão e atendimento no bloco F1.",
       href: "/centro-academico",
       icon: Users,
-      accent: "text-blue-700 bg-blue-50 border-blue-100",
+      accent: "text-brand-700 bg-blue-50/80 border-blue-200/80",
+      tag: "Representação",
     },
     {
-      title: "Atlética de Psicologia",
-      description: "Modalidades esportivas, treinos, competições e produtos oficiais.",
+      title: "Atlética Guaxas",
+      description: "Modalidades esportivas, treinos, campeonatos universitários e mantos oficiais da A.A.A.P.U.",
       href: "/atletica",
       icon: Trophy,
-      accent: "text-amber-800 bg-amber-50 border-amber-100",
+      accent: "text-cyan-800 bg-cyan-50/80 border-cyan-300/80",
+      tag: "A.A.A.P.U.",
     },
     {
       title: "Calendário de Eventos",
-      description: "Semanas acadêmicas, cine-debates, jogos e prazos do semestre.",
+      description: "Semanas acadêmicas, cine-debates, jogos universitários e prazos com horas complementares.",
       href: "/eventos",
       icon: Calendar,
-      accent: "text-purple-700 bg-purple-50 border-purple-100",
+      accent: "text-purple-700 bg-purple-50/80 border-purple-200/80",
+      tag: "Agenda & Horas",
     },
     {
       title: "Informações Acadêmicas",
-      description: "Guia de horas complementares, links do Elis, FAQ e matriz curricular.",
+      description: "Guia de validação de horas no Elis, links oficiais para sistemas da UNIVALI e perguntas frequentes.",
       href: "/informacoes-academicas",
       icon: BookOpen,
-      accent: "text-emerald-700 bg-emerald-50 border-emerald-100",
+      accent: "text-emerald-700 bg-emerald-50/80 border-emerald-200/80",
+      tag: "Guia & Elis",
     },
     {
       title: "Projetos & Acolher",
-      description: "Programa Acolher da UNIVALI, trote solidário e iniciativas discentes.",
+      description: "Programa Acolher da UNIVALI, trote solidário e iniciativas discentes de extensão.",
       href: "/projetos",
       icon: FolderGit2,
-      accent: "text-indigo-700 bg-indigo-50 border-indigo-100",
+      accent: "text-indigo-700 bg-indigo-50/80 border-indigo-200/80",
+      tag: "Acolhimento",
     },
     {
       title: "Canais de Contato",
-      description: "Fale com o CA, com a Atlética ou envie sua dúvida sobre o curso.",
+      description: "Fale com o CA, com a Atlética ou envie sua sugestão de pauta para o curso de Psicologia.",
       href: "/contato",
       icon: Mail,
       accent: "text-slate-700 bg-slate-100 border-slate-200",
+      tag: "Atendimento",
     },
   ];
 
   return (
     <div className="space-y-16 pb-20">
-      {/* Hero Section */}
-      <section className="relative pt-12 pb-16 md:pt-20 md:pb-24 bg-gradient-to-b from-blue-50/70 via-slate-50/50 to-slate-50 border-b border-slate-200/80">
+      {/* Modern University Hero with Photography */}
+      <section className="relative pt-12 pb-16 md:pt-16 md:pb-20 bg-gradient-to-b from-blue-50/80 via-slate-50/60 to-slate-50 border-b border-slate-200/90 overflow-hidden">
         <Container>
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100/70 text-brand-800 text-xs font-semibold mb-6">
-              <GraduationCap className="w-3.5 h-3.5" />
-              <span>UNIVALI · Curso de Psicologia · Campus Itajaí</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            {/* Headline and Value Proposition */}
+            <div className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100/90 text-brand-800 text-xs font-bold mb-5 shadow-xs">
+                <GraduationCap className="w-3.5 h-3.5 text-brand-700" />
+                <span>UNIVALI · Curso de Psicologia · Campus Itajaí</span>
+              </div>
+
+              <h1
+                className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-950 tracking-tight leading-[1.12]"
+                style={{ textWrap: "balance" }}
+              >
+                O ponto de encontro da Psicologia UNIVALI.
+              </h1>
+
+              <p className="mt-5 text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
+                Central unificada para acadêmicos: acompanhe as decisões do <strong>Centro Acadêmico</strong>, as modalidades da <strong>Atlética Guaxas</strong>, os eventos científicos e tudo sobre a sua vida acadêmica.
+              </p>
+
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <Link
+                  href="/eventos"
+                  className="px-5 py-3 text-xs font-bold text-white bg-brand-700 hover:bg-brand-800 rounded-xl transition-all shadow-sm flex items-center gap-2"
+                >
+                  <span>Ver Próximos Eventos</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  href="/atletica"
+                  className="px-5 py-3 text-xs font-bold text-slate-900 bg-cyan-400 hover:bg-cyan-300 rounded-xl transition-all shadow-sm flex items-center gap-2"
+                >
+                  <Shield className="w-4 h-4" />
+                  <span>Conhecer os Guaxas</span>
+                </Link>
+                <a
+                  href="https://elis.univali.br"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-3 text-xs font-semibold text-slate-600 hover:text-slate-900 flex items-center gap-1.5 transition-colors"
+                >
+                  <span>Portal Elis Oficial</span>
+                  <ExternalLink className="w-3.5 h-3.5 opacity-60" />
+                </a>
+              </div>
             </div>
 
-            <h1
-              className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-950 tracking-tight leading-[1.15]"
-              style={{ textWrap: "balance" }}
-            >
-              O ponto de encontro da Psicologia UNIVALI.
-            </h1>
-
-            <p className="mt-5 text-lg sm:text-xl text-slate-600 leading-relaxed">
-              Central unificada para acadêmicos: acompanhe as decisões do <strong>Centro Acadêmico</strong>, as modalidades da <strong>Atlética</strong>, os eventos do curso e informações essenciais para a sua trajetória acadêmica.
-            </p>
-
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Link
-                href="/eventos"
-                className="px-5 py-3 text-sm font-semibold text-white bg-brand-700 hover:bg-brand-800 rounded-xl transition-all shadow-sm flex items-center gap-2"
-              >
-                <span>Ver Próximos Eventos</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
-                href="/informacoes-academicas"
-                className="px-5 py-3 text-sm font-semibold text-slate-700 bg-white hover:bg-slate-100 border border-slate-200 rounded-xl transition-all flex items-center gap-2"
-              >
-                <span>Horas Complementares & Elis</span>
-              </Link>
-              <a
-                href="https://elis.univali.br"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-3 text-xs font-semibold text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition-colors"
-              >
-                <span>Portal Elis Oficial</span>
-                <ExternalLink className="w-3.5 h-3.5 opacity-60" />
-              </a>
+            {/* University Campus Hero Photo */}
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="relative w-full max-w-md aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-slate-200/90 bg-white group">
+                <Image
+                  src="/images/hero-campus.jpg"
+                  alt="Campus da UNIVALI - Espaço acadêmico do Curso de Psicologia"
+                  fill
+                  priority
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 text-white text-xs font-semibold drop-shadow-sm flex items-center justify-between">
+                  <span>Campus Itajaí · Setor de Saúde</span>
+                  <span className="text-cyan-300 font-bold">Psicologia</span>
+                </div>
+              </div>
             </div>
           </div>
         </Container>
@@ -124,7 +155,7 @@ export default function HomePage() {
       <section>
         <Container>
           <SectionTitle
-            tag="Acesso Rápido"
+            tag="Acesso Direto"
             title="Explore o Portal"
             subtitle="Tudo o que você precisa saber sobre a vida universitária em Psicologia em um só lugar."
           />
@@ -139,10 +170,15 @@ export default function HomePage() {
                   className="group bg-white border border-slate-200/90 rounded-2xl p-6 hover:border-brand-500 hover:shadow-md transition-all flex flex-col justify-between"
                 >
                   <div>
-                    <div
-                      className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 border transition-transform group-hover:scale-105 ${shortcut.accent}`}
-                    >
-                      <Icon className="w-6 h-6" />
+                    <div className="flex items-center justify-between gap-2 mb-4">
+                      <div
+                        className={`w-12 h-12 rounded-xl flex items-center justify-center border transition-transform group-hover:scale-105 ${shortcut.accent}`}
+                      >
+                        <Icon className="w-6 h-6" />
+                      </div>
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 group-hover:text-brand-600 transition-colors">
+                        {shortcut.tag}
+                      </span>
                     </div>
 
                     <h3 className="text-lg font-bold text-slate-900 group-hover:text-brand-700 transition-colors mb-2">
@@ -154,8 +190,8 @@ export default function HomePage() {
                     </p>
                   </div>
 
-                  <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-brand-700 group-hover:translate-x-0.5 transition-transform">
-                    <span>Acessar seção</span>
+                  <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-brand-700 group-hover:translate-x-0.5 transition-transform">
+                    <span>Acessar área</span>
                     <ArrowRight className="w-4 h-4" />
                   </div>
                 </Link>
@@ -172,17 +208,17 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Upcoming Events Section */}
+      {/* Upcoming Events Section (with visual cards) */}
       <section>
         <Container>
           <SectionTitle
             tag="Agenda & Vivência"
             title="Próximos Eventos"
-            subtitle="Semanas acadêmicas, jogos universitários, palestras e momentos de integração."
+            subtitle="Semanas acadêmicas, jogos universitários dos Guaxas, palestras e momentos de integração."
             action={
               <Link
                 href="/eventos"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-700 hover:text-brand-900 transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-700 hover:text-brand-900 transition-colors"
               >
                 <span>Ver calendário completo</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -203,12 +239,12 @@ export default function HomePage() {
         <Container>
           <SectionTitle
             tag="Transparência & Gestão"
-            title="Avisos Importantes do Centro Acadêmico"
-            subtitle="Comunicados oficiais para a comunidade acadêmica discente de Psicologia."
+            title="Avisos do Centro Acadêmico"
+            subtitle="Comunicados oficiais para a comunidade discente de Psicologia."
             action={
               <Link
                 href="/centro-academico"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-700 hover:text-brand-900 transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-700 hover:text-brand-900 transition-colors"
               >
                 <span>Ver todos os comunicados</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -227,30 +263,30 @@ export default function HomePage() {
       {/* Institutional Clarity Footer Banner */}
       <section>
         <Container>
-          <div className="bg-slate-100/80 border border-slate-200 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div className="bg-slate-100/90 border border-slate-200/90 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div className="max-w-2xl">
-              <div className="flex items-center gap-2 text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
+              <div className="flex items-center gap-2 text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                 <ShieldCheck className="w-4 h-4 text-brand-700" />
                 <span>Sobre o Portal</span>
               </div>
               <h3 className="text-base sm:text-lg font-bold text-slate-900">
-                Iniciativa estudantil complementar aos canais oficiais da UNIVALI
+                Iniciativa estudantil unificada para o curso de Psicologia da UNIVALI
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
-                Este portal foi concebido para centralizar a comunicação das entidades discentes (CA e Atlética) que antes ficava dispersa no WhatsApp e Instagram. Procedimentos oficiais de matrícula e notas continuam sendo realizados no Sistema Elis.
+                Este portal centraliza a comunicação discente (CA e Atlética Guaxas) para manter os estudantes informados. Procedimentos oficiais como matrícula, trancamento e emissão de notas continuam sendo realizados diretamente no Sistema Elis.
               </p>
             </div>
 
             <div className="flex items-center gap-3 shrink-0">
               <Link
                 href="/contato"
-                className="px-4 py-2 text-xs font-semibold text-slate-700 bg-white hover:bg-slate-50 border border-slate-300 rounded-lg transition-colors"
+                className="px-4 py-2 text-xs font-bold text-slate-700 bg-white hover:bg-slate-50 border border-slate-300 rounded-xl transition-colors"
               >
                 Fale Conosco
               </Link>
               <Link
                 href="/admin"
-                className="px-4 py-2 text-xs font-semibold text-brand-800 bg-blue-100/70 hover:bg-blue-100 rounded-lg transition-colors"
+                className="px-4 py-2 text-xs font-bold text-brand-800 bg-blue-100/80 hover:bg-blue-200/80 rounded-xl transition-colors"
               >
                 Área de Gestão
               </Link>

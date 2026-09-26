@@ -38,7 +38,7 @@ Não modifique a arquitetura do projeto sem justificar e documentar a decisão.
 - Preserve a paleta de cores institucional:
   - Azul Institucional: `brand-*` (#0A3D78 / #1e40af / #1d4ed8)
   - Roxo Psi: `psi-*` (#7c3aed / #9333ea)
-  - Identidade da Atlética: tons escuros combinados com âmbar/dourado (`amber-400 / #f59e0b`)
+  - Identidade da Atlética (A.A.A.P.U. Guaxas): tons escuros (azul escuro/preto) combinados com azul petróleo, ciano elétrico e cinza prateado (NUNCA usar dourado ou amarelo)
 
 ---
 

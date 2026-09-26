@@ -7,6 +7,7 @@ export const PROGRAMA_ACOLHER_DATA: Project = {
   category: "Acolhimento & Saúde Mental",
   entityOwner: "univali",
   isInstitutional: true,
+  imageUrl: "/images/acolher-espaco.jpg",
   contactEmail: "acolher@univali.br",
   contactPhone: "(47) 3341-5503",
   officialUrl: "https://www.univali.br/vida-no-campus/acolher/Paginas/default.aspx",
@@ -33,6 +34,7 @@ export const MOCK_PROJECTS: Project[] = [
     description: "Iniciativa do Centro Acadêmico que substitui práticas humilhantes por arrecadação de alimentos, produtos de higiene e livros destinados a instituições parceiras de Itajaí.",
     category: "Ação Social",
     entityOwner: "centro_academico",
+    imageUrl: "/images/hero-campus.jpg",
     contactEmail: "ca.psicologia@univali.br",
     accessInfo: "Realizado todo início de semestre no pátio do Bloco F1. Pontuação para as turmas de calouros e veteranos.",
     details: {
@@ -51,6 +53,7 @@ export const MOCK_PROJECTS: Project[] = [
     description: "Projeto de extensão discente com sessões mensais de filmes e documentários seguidos de debates com psicólogos clínicos, sociais e docentes.",
     category: "Extensão Universitária",
     entityOwner: "centro_academico",
+    imageUrl: "/images/evento-palestra.jpg",
     contactEmail: "cultura.ca@edu.univali.br",
     accessInfo: "Aberto a estudantes de qualquer curso da UNIVALI e comunidade externa.",
     details: {
@@ -66,16 +69,17 @@ export const MOCK_PROJECTS: Project[] = [
   {
     id: "proj_psi_esportiva",
     title: "PsicoEmMovimento: Esporte & Bem-Estar Universitário",
-    description: "Projeto capitaneado pela Atlética promovendo atividade física regular, torneios recreativos e integração como fator de proteção à saúde mental.",
+    description: "Projeto capitaneado pela Atlética Guaxas promovendo atividade física regular, torneios recreativos e integração como fator de proteção à saúde mental.",
     category: "Esporte & Integração",
     entityOwner: "atletica",
+    imageUrl: "/images/evento-futsal.jpg",
     contactEmail: "atletica.psico@univali.br",
     accessInfo: "Treinos semanais gratuitos abertos para todos os períodos do curso.",
     details: {
       location: "Complexo Esportivo UNIVALI",
       hours: "Terças, quintas e sábados",
       features: [
-        "6 modalidades ativas",
+        "6 modalidades ativas sob coordenação dos Guaxas",
         "Apoio de monitores dos períodos avançados",
         "Equipes mistas e de incentivo à prática inicial",
       ],

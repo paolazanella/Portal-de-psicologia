@@ -1,6 +1,6 @@
 import React from "react";
 import { BoardMember } from "@/types";
-import { Mail, Instagram } from "lucide-react";
+import { Mail, Instagram, Shield } from "lucide-react";
 
 interface MemberCardProps {
   member: BoardMember;
@@ -11,14 +11,14 @@ export function MemberCard({ member, accent = "brand" }: MemberCardProps) {
   const isAtletica = accent === "atletica";
 
   return (
-    <div className="bg-white border border-slate-200/90 rounded-xl p-5 hover:shadow-sm transition-shadow flex flex-col justify-between">
+    <div className="bg-white border border-slate-200/90 rounded-2xl p-5 hover:border-slate-300 hover:shadow-md transition-all flex flex-col justify-between">
       <div>
         <div className="flex items-center gap-3.5 mb-3.5">
           <div
             className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-base select-none shrink-0 ${
               isAtletica
-                ? "bg-amber-100 text-amber-900 border border-amber-300/60"
-                : "bg-blue-100 text-brand-800 border border-blue-200/60"
+                ? "bg-[#0b1c2e] text-cyan-300 border border-cyan-500/40"
+                : "bg-blue-50 text-brand-800 border border-blue-200/60"
             }`}
           >
             {member.name
@@ -28,12 +28,12 @@ export function MemberCard({ member, accent = "brand" }: MemberCardProps) {
               .join("")}
           </div>
           <div>
-            <h4 className="text-base font-semibold text-slate-900 leading-snug">
+            <h4 className="text-base font-bold text-slate-900 leading-snug">
               {member.name}
             </h4>
             <p
-              className={`text-xs font-medium ${
-                isAtletica ? "text-amber-700" : "text-brand-700"
+              className={`text-xs font-semibold ${
+                isAtletica ? "text-cyan-700" : "text-brand-700"
               }`}
             >
               {member.role}
@@ -42,6 +42,7 @@ export function MemberCard({ member, accent = "brand" }: MemberCardProps) {
         </div>
 
         <div className="text-xs text-slate-500 mb-3 flex items-center gap-1.5">
+          {isAtletica && <Shield className="w-3 h-3 text-cyan-600" />}
           <span>{member.semester}</span>
         </div>
 

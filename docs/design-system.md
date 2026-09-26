@@ -9,7 +9,7 @@ O design do **Portal de Psicologia UNIVALI** foi desenvolvido seguindo princípi
 - **Fundo Predominantemente Claro:** O portal utiliza `bg-slate-50` e `bg-white` para assegurar máxima legibilidade de textos acadêmicos e comunicados.
 - **Azul Institucional UNIVALI:** Cor primária que remete à tradição universitária e seriedade acadêmica (`brand-700` #1d4ed8 / #1e40af).
 - **Roxo / Lavanda Psicológico:** Utilizado em acentos culturais, saúde mental e no símbolo Ψ (Psi) (`psi-700` #7e22ce / #9333ea).
-- **Identidade da Atlética:** A página da Atlética preserva suas cores oficiais (preto, grafite e dourado/âmbar `amber-400`), mantendo harmonia com o restante do portal sem parecer um site desconectado.
+- **Identidade da Atlética (A.A.A.P.U. Guaxas):** A página da Atlética preserva as cores oficiais da sua marca (azul escuro `#0b1c2e`, azul petróleo `#0e7490`, ciano `#0284c7`, cinza prateado e preto), mantendo harmonia com o restante do portal sem utilizar tons dourados.
 
 ---
 
@@ -20,7 +20,8 @@ O design do **Portal de Psicologia UNIVALI** foi desenvolvido seguindo princípi
 | **Azul Brand** | `brand-700` | `#1d4ed8` | Botões primários, links ativos, cabeçalhos institucionais |
 | **Azul Brand Deep** | `brand-950` | `#081944` | Textos em alto contraste |
 | **Roxo Psi** | `psi-700` | `#7e22ce` | Destaques do Programa Acolher, símbolo Psi |
-| **Dourado Atlética**| `amber-400` / `amber-500` | `#f59e0b` | Botões, medalhas e badges da Atlética |
+| **Atlética Petróleo/Ciano**| `atletica.cyan` / `atletica.petrol` | `#06b6d4` / `#0e7490` | Identidade Guaxas, botões e badges esportivos |
+| **Atlética Navy/Dark**| `atletica.primary` / `atletica.dark` | `#0b1c2e` / `#09121d` | Fundos de cards e hero da Atlética |
 | **Cinza Canvas** | `slate-50` | `#f8fafc` | Fundo principal de todas as páginas |
 | **Cinza Borda** | `slate-200` | `#e2e8f0` | Divisores sutis e bordas de cards |
 
